@@ -1,0 +1,30 @@
+<div class="navbar justify-content-start bg-dark">
+    <span><a class="mr-3" href="/">Home</a></span>
+    <span><%if(!session){%>
+        <a class="mr-3" href="/user/signUp">Sign Up</a>
+        <a class="mr-3" href="/user/signIn">Sign In</a>
+    <%}%>
+        <%if(session){%>
+        <a href="/user/logout">Logout here</a>
+    <%}%>
+    
+    </span>
+</div>
+
+<br/>
+
+    
+    
+<%if(user && session){%>
+    <h2>logged in </h2>
+    <img src="https://cdn.pixabay.com/photo/2018/08/14/13/23/ocean-3605547__340.jpg"
+    class="bg-center m-5" 
+    />
+    
+    <%}%>
+    <%if(!user && !session){%>
+        <h2>logged out</h2>
+        <img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__340.jpg"
+        class="bg-center m-5" />
+        
+    <%}%>
