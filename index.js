@@ -12,6 +12,7 @@ const cookieParser = require('cookie-parser')
 const googleRouter = require('./routes/googleRoute')
 const flash = require('connect-flash')
 const dotenv = require('dotenv')
+const MemoryStore = require('memorystore')(session)
 dotenv.config()
 require('./routes/passport-google-setup')
 // require('./routes/googleRoute')
@@ -25,6 +26,8 @@ db.on('error',console.error.bind(console, "connection error"))
 db.once('open',()=>{console.log('connection successful')})
 
 app.set('view engine', 'ejs')
+// app.set('view engine', 'html')
+
 app.set('views', __dirname+ '/views')
 app.set('layout','./layouts/layouts')
 app.use('/', googleRouter)
@@ -36,7 +39,7 @@ app.use(session({
     secret:"Laxman",
     resave:true, 
     saveUninitialized:true,
-    store:new mongoStore({
+    store:new MemoryStore({
         ttl:1000,
         mongoUrl:"mongodb://localhost:27017/users",
     }),
@@ -60,6 +63,10 @@ function checkAuth(req,res,next){
         next()
     }
 }
+
+// app.get('/', (req, res)=>{
+//     res.sendFile('index.html')
+// })
 
 app.get('/', checkAuth ,async (req,res)=>{
     let session;
@@ -94,9 +101,6 @@ app.get('/', checkAuth ,async (req,res)=>{
 //     res.send(name)
 // })
  
-
-
-
 app.listen(3000,()=>{
     console.log("listening to port:3000")
 })
