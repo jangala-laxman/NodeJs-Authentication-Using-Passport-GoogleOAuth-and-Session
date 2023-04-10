@@ -1,0 +1,28 @@
+
+<div class="navbar justify-content-start bg-dark">
+  <a class="mr-3" href="/home">Home</a><br>
+</div>
+
+<br/>
+<h2 class="m-4">Sign In Here</h2>
+
+<form action="/user/signIn" class="border rounded w-75 ml-5" method="POST">
+    <div class="form-group">
+        <label for="formGroupExampleInput" class="mt-4 ml-5">Email</label>
+        <input type="email" name="email" class="form-control ml-5 w-50" id="formGroupExampleInput">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2" class="mt-2 ml-5 ">Password</label>
+        <input type="password" name="password" class="form-control mt-2 ml-5 w-50" id="formGroupExampleInput2">
+      </div>
+    <button class="border bg-primary ml-5 mt-3 mb-4 p-3 rounded">submit</button>
+    <button class="border bg-alert ml-5 mt-3 mb-4 p-3 rounded"><a href="/user/reset">Forgot Password</a></button>
+</form>
+
+<div class="d-flex flex-column m-5">
+  
+<h3  class="flex-column justify-content-center">Sign in using </h3>
+<a href='/auth/google' ><img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" style="height:30px; width:30px; margin:30px 0px"/></a>
+<p>Not a User <a href="./signUp">Register here</a></p>
+</div>
+</div>

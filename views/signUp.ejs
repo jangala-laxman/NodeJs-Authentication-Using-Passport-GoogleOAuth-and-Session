@@ -1,0 +1,33 @@
+<div class="navbar justify-content-start bg-dark">
+    <a class="mr-3" href="/home">Home</a><br>
+</div>
+
+<br/>
+<h2 class="mt-5 ml-5">Sign Up here</h2>
+<form action="/user/signUp" class="border rounded w-75 ml-5" method="POST">
+    
+    <div class="form-group">
+        <label for="formGroupExampleInput" class="mt-4 ml-5">Name</label>
+        <input type="name" name="username" class="form-control ml-5 w-50" id="formGroupExampleInput">
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput" class="mt-4 ml-5">Email</label>
+        <input type="email" name="email" class="form-control ml-5 w-50" id="formGroupExampleInput">
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput" class="mt-4 ml-5">Age</label>
+        <input type="Number" name="age" class="form-control ml-5 w-50" id="formGroupExampleInput">
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput" class="mt-4 ml-5">Password</label>
+        <input type="password" name="password" class="form-control ml-5 w-50" id="formGroupExampleInput">
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput" class="mt-4 ml-5">Confirm Password</label>
+        <input type="text" name="confirm Password" class="form-control ml-5 w-50" id="formGroupExampleInput">
+    </div>
+   
+    <button class="border bg-primary ml-5 mt-3 mb-4 p-3 rounded">submit</button>
+    <p class="ml-5">Already User <a href="./signIn" >Login here</a></p>
+
+</form>
