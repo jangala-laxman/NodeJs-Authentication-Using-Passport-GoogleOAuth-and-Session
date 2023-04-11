@@ -4,7 +4,7 @@ const router = express.Router()
 const serverless = require('serverless-http')
 
 router.get("/", (req, res)=>{
-    res.render("home")
+    res.redirect("/home")
 })
 
 app.use('/.netlify/functions/api', router)
