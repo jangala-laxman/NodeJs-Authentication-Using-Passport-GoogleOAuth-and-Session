@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const expressLayouts = require('express-ejs-layouts')
 const app = express()
-const router = express.Router()
+// const app = express.app()
 const User = require('./models/user')
 const userRouter =   require('./routes/users')
 const session = require('express-session')
@@ -27,17 +27,13 @@ const db = mongoose.connection
 db.on('error',console.error.bind(console, "connection error"))
 db.once('open',()=>{console.log('connection successful')})
 
-app.set('view engine', 'ejs')
-// router.set('view engine', 'html')
 
-app.set('views', __dirname+ '/views')
-app.set('layout','./layouts/layouts')
 app.use('/', googleRouter)
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(expressLayouts)
 app.use(cookieParser())
 
-router.use(session({
+app.use(session({
     secret:"Laxman",
     resave:true, 
     saveUninitialized:true,
@@ -66,11 +62,11 @@ function checkAuth(req,res,next){
     }
 }
 
-// router.get('/', (req, res)=>{
+// app.get('/', (req, res)=>{
 //     res.sendFile('index.html')
 // })
 
-router.get('/', checkAuth ,async (req,res)=>{
+app.get('/', checkAuth ,async (req,res)=>{
     let session;
     try{
         if(req.session.user){
@@ -97,12 +93,8 @@ router.get('/', checkAuth ,async (req,res)=>{
     
 })
 
-// router.get('/session',(req,res)=>{
-//     let name = req.session.name
-//     console.log(req.session)
-//     res.send(name)
-// })
- app.get('/home', async(req,res)=>{
+
+app.get('/home', async(req,res)=>{
     let session;
     try{
         if(req.session.user){
@@ -131,10 +123,7 @@ router.get('/', checkAuth ,async (req,res)=>{
 
 app.use(flash())
 
-app.use('/.netlify/functions/api', router)
-app.listen(3000,()=>{
-    console.log("listening to port:3000")
-})
- 
 
-module.exports.handler = serverless(app)
+app.listen(3000, ()=>{
+    console.log("listening to port 3000")
+})

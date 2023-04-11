@@ -5,7 +5,7 @@ const router = express.Router()
 const bcrypt = require('bcryptjs')
 const crypto = require('crypto')
 const Token = require('../models/token')
-const Noty = require('noty')
+// const Noty = require('noty')
 const {sendEmail} = require('../controllers/sendEmail')
 const alert = require("alert")
 
