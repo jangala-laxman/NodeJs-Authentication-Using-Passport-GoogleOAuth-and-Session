@@ -129,9 +129,9 @@ app.use(flash())
 const router = express.Router()
 // const serverless = require('serverless-http')
 
-router.get("/", (req, res)=>{
-    res.redirect("/home")
-})
+// router.get("", (req, res)=>{
+//     res.redirect("/home")
+// })
 
 app.use('/.netlify/functions/api', router)
 module.exports.handler = serverless(app)
