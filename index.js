@@ -27,7 +27,9 @@ const db = mongoose.connection
 db.on('error',console.error.bind(console, "connection error"))
 db.once('open',()=>{console.log('connection successful')})
 
-
+app.set('layout', 'layouts/layouts')
+app.set('view engine', 'ejs')
+// app.set('')
 app.use('/', googleRouter)
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(expressLayouts)
@@ -122,6 +124,17 @@ app.get('/home', async(req,res)=>{
  })
 
 app.use(flash())
+
+// const app= express()
+const router = express.Router()
+// const serverless = require('serverless-http')
+
+router.get("/", (req, res)=>{
+    res.redirect("/home")
+})
+
+app.use('/.netlify/functions/api', router)
+module.exports.handler = serverless(app)
 
 
 app.listen(3000, ()=>{
