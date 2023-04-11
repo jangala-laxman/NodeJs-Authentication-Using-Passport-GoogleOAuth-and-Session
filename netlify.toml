@@ -2,6 +2,6 @@
     functions = "functions"
 
 [[redirects]]
-    to="/index.html"
+    to="/dist/index.html"
     from="/*"
     status=200
