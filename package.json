@@ -34,6 +34,7 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=development ./node_modules/.bin/netlify-lambda serve functions",
+    "build":"CI= npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
