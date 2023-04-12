@@ -17,8 +17,10 @@ dotenv.config()
 require('./routes/passport-google-setup')
 // require('./routes/googleRoute')
 
-
-mongoose.connect('mongodb://127.0.0.1:27017/users')
+mongoose.connect('mongodb://127.0.0.1:27017/users,
+                 {useNewUrlParser: true})
+.then((res)=> console.log("MongoDB connected"))
+.catch((err)=> console.error("Connection failed", err));
 
 const db = mongoose.connection
 
