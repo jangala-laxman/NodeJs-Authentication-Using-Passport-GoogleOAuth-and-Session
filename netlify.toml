@@ -1,7 +1,3 @@
 [build]
     functions = "functions"
 
-[[redirects]]
-    to="/dist/index.html"
-    from="/*"
-    status=200
