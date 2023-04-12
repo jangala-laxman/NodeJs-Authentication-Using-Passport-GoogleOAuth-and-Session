@@ -18,7 +18,7 @@ require('./routes/passport-google-setup')
 // require('./routes/googleRoute')
 
 
-mongoose.connect('mongodb://localhost:27017/users')
+mongoose.connect('mongodb://127.0.0.1:27017/users')
 
 const db = mongoose.connection
 
@@ -41,7 +41,7 @@ app.use(session({
     saveUninitialized:true,
     store:new MemoryStore({
         ttl:1000,
-        mongoUrl:"mongodb://localhost:27017/users",
+        mongoUrl:"mongodb://127.0.0.1:27017/users",
     }),
     cookie:{
         secure:true,
