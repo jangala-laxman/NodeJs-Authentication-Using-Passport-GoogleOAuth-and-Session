@@ -11,21 +11,38 @@ const session = require('express-session')
 const cookieParser = require('cookie-parser')
 const googleRouter = require('./routes/googleRoute')
 const flash = require('connect-flash')
-const dotenv = require('dotenv')
 const serverless = require('serverless-http')
 const MemoryStore = require('memorystore')(session)
-dotenv.config()
+require('dotenv').config()
 let alert = require("alert")
 require('./routes/passport-google-setup')
 // require('./routes/googleRoute')
 
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = process.env.url
 
-mongoose.connect('mongodb://localhost:27017/users')
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
 
-const db = mongoose.connection
-
-db.on('error',console.error.bind(console, "connection error"))
-db.once('open',()=>{console.log('connection successful')})
+async function run() {
+  try {
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);
 
 app.set('layout', 'layouts/layouts')
 app.set('view engine', 'ejs')
