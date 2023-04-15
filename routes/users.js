@@ -91,7 +91,7 @@ router.post('/signIn',async (req,res)=>{
         }    
     }catch(err){
         console.log(err)
-        res.status(500).send("internal server error")
+        res.send(err).status(500)
     }
 })
 
