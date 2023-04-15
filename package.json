@@ -33,8 +33,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "start": "//node_modules/.bin/netlify-lambda serve ",
     "build":"./node_modules/.bin/netlify-lambda build functions",
+=======
+    "start": "nodemon index.js",
+>>>>>>> 3b9bffffa335b6a9c2287f3b77038c9790804723
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
