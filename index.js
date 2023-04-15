@@ -20,7 +20,7 @@ require('./routes/passport-google-setup')
 // require('./routes/googleRoute')
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = process.env.url
+const uri = "mongodb+srv://laxman:L1u9c9k9y@cluster0.letk1.mongodb.net/?retryWrites=true&w=majority"
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
