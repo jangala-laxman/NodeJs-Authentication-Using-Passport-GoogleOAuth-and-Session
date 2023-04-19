@@ -37,6 +37,7 @@ router.get(
 router.get('/auth/google/callback/success' , (req , res) => {
     if(!req.user)
         res.redirect('/auth/google/callback/failure');
+    console.log(req.user)    
     res.send("Welcome " + req.user.email + `<br/> <a href="/home">Home page</a> ` );
 });
   
