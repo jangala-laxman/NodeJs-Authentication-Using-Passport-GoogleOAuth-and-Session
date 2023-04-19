@@ -77,7 +77,8 @@ router.post("/signIn", async (req, res) => {
       if (compare) {
         req.session.user = user;
         alert("welcome home");
-        res.render("home", { user: req.session.user, session: req.session }).redirect('/');
+        res.redirect('/')
+        // res.render("home", { user: req.session.user, session: req.session })
       } else {
         alert("wrong password");
         console.log("wrong password");

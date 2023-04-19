@@ -65,7 +65,7 @@ app.use(
     saveUninitialized: true,
     store: new MongoStore({
       url: "mongodb+srv://laxman:L1u9c9k9y@cluster0.letk1.mongodb.net/users?authSource=+Cluster0&authMechanism=SCRAM-SHA-1",
-      ttl: 10 * 1000,
+      ttl: 300 * 1000,
       autoRemove: "native",
     }),
   })
