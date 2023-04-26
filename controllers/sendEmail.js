@@ -9,9 +9,9 @@ module.exports.sendEmail = async(email, subject, html)=>{
             secure:true,
             auth:{
                 user:process.env.user,
-                pass:process.env.password
+                pass:process.env.mail_password
             },
-            port:534            
+            port:465            
         })
     await transporter.sendMail({
         from:process.env.user,

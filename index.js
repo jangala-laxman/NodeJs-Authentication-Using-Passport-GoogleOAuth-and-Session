@@ -164,9 +164,6 @@ router.get("/", (req, res) => {
   res.redirect("/home");
 });
 
-app.use("/.netlify/functions/api", router);
-module.exports.handler = serverless(app);
-
 app.listen(3000, () => {
   console.log("listening to port 3000");
 });
